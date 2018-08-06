@@ -10,6 +10,11 @@
     </head>
     <body>
         <div class="container">
+            {% if app.user %}
+                Zalogowany jako {{ app.user }} | <a href="{{ path('fos_user_security_logout') }}">Wyloguj się</a>
+            {% else %}
+                <a href="{{ path('fos_user_security_login') }}">Zaloguj się</a>
+            {% endif %}
             {% block body %}{% endblock %}
         </div>
         {% block javascripts %}{% endblock %}
