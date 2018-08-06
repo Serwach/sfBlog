@@ -96,3 +96,8 @@ fos_user:
     from_email:
         address: "testapp@testapp.com"
         sender_name: "Test App"
+
+easy_admin:
+    entities:
+        - AppBundle\Entity\Post
+        - AppBundle\Entity\Comment
