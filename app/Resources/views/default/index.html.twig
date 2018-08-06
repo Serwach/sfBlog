@@ -1,13 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1 id="title">Blog</h1>
-{% endblock %}
+    <h1>Blog</h1>
 
-{% block stylesheets %}
-<style>
-    #title {
-        font-size: 40px;    
-    }
-</style>
+    {% for post in posts %}
+    	<div>
+    		<h2><a href='{{ path('post_show', {'id': post.id}) }}'>{{ post.title }}</a></h2>
+    		<p>{{ post.lead }}</p>
+    	</div>
+    {% endfor %}
+
+    <div class="navigation">
+        {{ knp_pagination_render(posts) }}
+    </div>
+
 {% endblock %}
